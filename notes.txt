@@ -1,0 +1,25 @@
+class : Car(vehicle),traff,road,main
+main = simulator code
+
+car need 
+position
+road currently on(road1 or2)
+
+traffic light need
+colour
+rate or change num from 0.01 to 0.99
+
+road 
+length(number of segments)
+other road it connects
+
+vehicle: car [2] bus[3*car] motor[0.5*car] SELFDRIVE
+
+Menu: - new open save exit , mode, status
+monitor: how many vehicle in city,trafflight,avg speed
+
+scenario:
+first road contain traffic light (located at last road segment)
+simulator tell traff while car pos<4 move and ==4 if green move if the car at end of road it move to next road
+
+traff : green->red and green to simulate : -random generate 0-0.99 if less than traf change then red to green and viceversa
