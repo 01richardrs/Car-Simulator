@@ -2,9 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Menu extends JFrame {
-    private Color BG_color = Color.GRAY;
+    Field fields = new Field();
     private JLabel City = new  JLabel("City",SwingConstants.CENTER);
     private JLabel Citytxt = new  JLabel("100 peps",SwingConstants.CENTER);
     private JLabel mode = new  JLabel("Mode",SwingConstants.CENTER);
@@ -12,7 +13,6 @@ public class Menu extends JFrame {
     private JLabel status = new  JLabel("Status",SwingConstants.CENTER);
     private JLabel statustxt = new  JLabel("Starting",SwingConstants.CENTER);
 
-    private JButton BtnOne = new JButton("Screen");
 
     private JButton New_but = new JButton("New");
     private JButton Open_but = new JButton("Open ");
@@ -25,7 +25,9 @@ public class Menu extends JFrame {
     private JPanel North_content = new JPanel(new GridLayout(2,2));//top
     private JPanel South_content = new JPanel(new GridLayout(1,4));//below
     private JPanel Center_content = new JPanel();//center
-
+    int xx = 10;
+    int yy = 20;
+    Car mobil1 = new Car(xx,yy);
 
     public Menu(String title) {
         super(title);//set title
@@ -49,24 +51,33 @@ public class Menu extends JFrame {
         menuBar.add(file);//add menubar 1
 
         setLayout(new BorderLayout());
-        add(Center_content, BorderLayout.CENTER);//right
+        add(fields, BorderLayout.CENTER);//right
         add(North_content, BorderLayout.NORTH);//up
         add(South_content, BorderLayout.SOUTH);//below
         add(West_Content, BorderLayout.WEST);//left
         West_Content.setPreferredSize(new Dimension(240, 120));
         North_content.setPreferredSize(new Dimension(this.getWidth(), 80));
         South_content.setPreferredSize(new Dimension(this.getWidth(), 80));
-        Center_content.setPreferredSize(new Dimension(50, 120));
-        Center_content.setBackground(BG_color);
+
 
         North_content.add(City) ;
         North_content.add(BtnFive);
         North_content.add(Citytxt) ;
         North_content.add(Stop);
 
-        Center_content.add(BtnOne);
-
         West_Content.add(New_but);
+        New_but.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                int xx = 10;
+                for(int a=0;a<10;a++){
+                    int i = 10;
+                    xx = xx+ i;
+
+                    mobil1.setPositionX(xx);
+                }
+            }
+        });
         West_Content.add(Open_but);
         West_Content.add(Save_but);
         West_Content.add(Exit_but);
@@ -77,7 +88,11 @@ public class Menu extends JFrame {
         South_content.add(status);
         South_content.add(statustxt);
 
+        fields.addCar(mobil1);
+        this.repaint();
         setVisible(true);
+
+
 
     }
     public static void main(String[] args) {
@@ -93,4 +108,5 @@ public class Menu extends JFrame {
             System.exit(0);//exit actions
         }
     }
+
 }
