@@ -4,17 +4,27 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Menu extends JFrame {
-    private JButton BtnOne = new JButton("One");
-    private JButton BtnTwo = new JButton("Two");
-    private JButton BtnThree = new JButton("Three");
-    private JButton BtnFour = new JButton("Four");
-    private JButton BtnFive = new JButton("Five");
-    private JButton BtnSix = new JButton("Six");
-    private JButton BtnSvn = new JButton("Seven");
-    private JPanel PnlOne = new JPanel(new GridLayout(3, 1));
-    private JPanel PnlTwo = new JPanel(new GridLayout(1,3));
-    private JPanel PnlThree = new JPanel(new GridLayout(1,3));
-    private JPanel PnlFour = new JPanel(new GridLayout(1,3));
+    private Color BG_color = Color.GRAY;
+    private JLabel City = new  JLabel("City",SwingConstants.CENTER);
+    private JLabel Citytxt = new  JLabel("100 peps",SwingConstants.CENTER);
+    private JLabel mode = new  JLabel("Mode",SwingConstants.CENTER);
+    private JLabel modetxt = new  JLabel("Start",SwingConstants.CENTER);
+    private JLabel status = new  JLabel("Status",SwingConstants.CENTER);
+    private JLabel statustxt = new  JLabel("Starting",SwingConstants.CENTER);
+
+    private JButton BtnOne = new JButton("Screen");
+
+    private JButton New_but = new JButton("New");
+    private JButton Open_but = new JButton("Open ");
+    private JButton Save_but = new JButton("Save");
+    private JButton Exit_but = new JButton("Exit");
+
+    private JButton BtnFive = new JButton("Start");
+    private JButton Stop = new JButton("Stop");
+    private JPanel West_Content = new JPanel(new GridLayout(4, 1));//left
+    private JPanel North_content = new JPanel(new GridLayout(2,2));//top
+    private JPanel South_content = new JPanel(new GridLayout(1,4));//below
+    private JPanel Center_content = new JPanel();//center
 
 
     public Menu(String title) {
@@ -39,22 +49,34 @@ public class Menu extends JFrame {
         menuBar.add(file);//add menubar 1
 
         setLayout(new BorderLayout());
-        add(PnlFour, BorderLayout.CENTER);//right
-        add(PnlTwo, BorderLayout.NORTH);//up
-        add(PnlThree, BorderLayout.SOUTH);//below
-        add(PnlOne, BorderLayout.WEST);//left
-        PnlOne.setPreferredSize(new Dimension(240, 120));
-        PnlTwo.setPreferredSize(new Dimension(this.getWidth(), 80));
-        PnlThree.setPreferredSize(new Dimension(this.getWidth(), 80));
-        PnlFour.setPreferredSize(new Dimension(50, 120));
-        PnlOne.add(BtnOne);
-        PnlFour.add(BtnOne);
-        PnlOne.add(BtnTwo);
-        PnlOne.add(BtnThree);
-        PnlTwo.add(BtnFour);
-        PnlTwo.add(BtnFive);
-        PnlTwo.add(BtnSix);
-        PnlThree.add(BtnSvn);
+        add(Center_content, BorderLayout.CENTER);//right
+        add(North_content, BorderLayout.NORTH);//up
+        add(South_content, BorderLayout.SOUTH);//below
+        add(West_Content, BorderLayout.WEST);//left
+        West_Content.setPreferredSize(new Dimension(240, 120));
+        North_content.setPreferredSize(new Dimension(this.getWidth(), 80));
+        South_content.setPreferredSize(new Dimension(this.getWidth(), 80));
+        Center_content.setPreferredSize(new Dimension(50, 120));
+        Center_content.setBackground(BG_color);
+
+        North_content.add(City) ;
+        North_content.add(BtnFive);
+        North_content.add(Citytxt) ;
+        North_content.add(Stop);
+
+        Center_content.add(BtnOne);
+
+        West_Content.add(New_but);
+        West_Content.add(Open_but);
+        West_Content.add(Save_but);
+        West_Content.add(Exit_but);
+
+
+        South_content.add(mode);
+        South_content.add(modetxt);
+        South_content.add(status);
+        South_content.add(statustxt);
+
         setVisible(true);
 
     }
