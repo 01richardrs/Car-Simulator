@@ -5,6 +5,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +29,36 @@ public class FieldTest {
             }
         }
     };
+
+    public static void saves(int row, int col){
+        try (PrintWriter writer = new PrintWriter(new File("test2.csv"))) {
+
+            StringBuilder sb = new StringBuilder();
+            int c=1;// can give conditions so if its road or smth
+            int at=0;
+            for(int a=0;a<row;a++){
+                for(int b=0;b<col;b++){
+                    sb.append(c);
+                    c++;
+                    at++;
+                    if(at == 10){
+                        sb.append('\n');
+                        at = 0;
+                    }else{
+                        sb.append(',');
+                    }
+                }
+            }
+
+            writer.write(sb.toString());
+
+            System.out.println("done!");
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
 
     public static void main(String[] args){
         JFrame testing = new JFrame("Test");
@@ -77,10 +110,12 @@ public class FieldTest {
             }
         }
 
+
         testing.setVisible(true);
         testing.repaint();
-
-
+        FieldTest.saves(ROWS,COLS);
 
     }
+
+
 }
