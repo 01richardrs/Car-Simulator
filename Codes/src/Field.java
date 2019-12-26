@@ -2,22 +2,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-import static javax.swing.UIManager.get;
 
 public class Field extends JPanel {
+    private int intX;
+    private int intY;
 
     ArrayList<Vehicle> Vehicle = new ArrayList<Vehicle>();
 
-    public Field(){
+    public Field(int x,int y){
         super();
+        this.intX =x;
+        this.intY = y;
     }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-
+        int b=0;
         g.setColor(Color.green);
-        g.fillRect(0 ,0,this.getWidth(),this.getHeight());//map
-
+        g.fillRect(intX,intY,250,250);
+//        g.setColor(Color.blue);
+//        g.fillRect(2,2,20,10);
 
 
 //        g.setColor(Color.BLACK);

@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Menu extends JFrame {
-    Field fields = new Field();
     private JLabel City = new  JLabel("City",SwingConstants.CENTER);
     private JLabel Citytxt = new  JLabel("100 peps",SwingConstants.CENTER);
     private JLabel mode = new  JLabel("Mode",SwingConstants.CENTER);
@@ -50,7 +49,7 @@ public class Menu extends JFrame {
         menuBar.add(file);//add menubar 1
 
         setLayout(new BorderLayout());
-        add(fields, BorderLayout.CENTER);//right
+//        add(fields, BorderLayout.CENTER);//right
         add(North_content, BorderLayout.NORTH);//up
         add(South_content, BorderLayout.SOUTH);//below
         add(West_Content, BorderLayout.WEST);//left
@@ -74,10 +73,10 @@ public class Menu extends JFrame {
         South_content.add(modetxt);
         South_content.add(status);
         South_content.add(statustxt);
-
-        fields.addVehicle(mobil1);
-        fields.addVehicle(nus1);
-        fields.addVehicle(moto1);
+//
+//        fields.addVehicle(mobil1);
+//        fields.addVehicle(nus1);
+//        fields.addVehicle(moto1);
         this.repaint();
         setVisible(true);
 

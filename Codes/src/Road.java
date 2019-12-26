@@ -39,8 +39,22 @@ public class Road {
 //        g.setColor(Color.WHITE);
 //        g.fillRect(b, 255, 50, 20);// i3 tebel i2 pjg
 //        }
-//        //up Straight road
+//        //right Straight road
 //
+
+            //up straight
+//        g.setColor(Color.white);
+//        g.fillRect(750,0,20,this.getHeight());// 0 for pos x , 125 for y pos //20 for height
+//        g.setColor(Color.black);
+//        g.fillRect(770,0,330,this.getHeight());
+//        g.setColor(Color.white);
+//        g.fillRect(1100,0,20,this.getHeight());
+//        for (int b = 0; b < getHeight(); b = b + 150) {//line
+//        g.setColor(Color.WHITE);
+//        g.fillRect(920, b, 20, 50);// i3 tebel i2 pjg
+//        }
+
+
 //        //traff light
 //        g.setColor(Color.gray);
 //        g.fillRect(this.getWidth()-48,100,15,45);
