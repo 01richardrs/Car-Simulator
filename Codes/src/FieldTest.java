@@ -5,9 +5,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.awt.print.Book;
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +60,26 @@ public class FieldTest {
             System.out.println(e.getMessage());
         }
 
+    }
+    public static void load(){
+        try {
+            File file = new File("test2.csv");
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+
+            String line = "";
+            String[] tempArr;
+            while((line = br.readLine()) != null) {
+                tempArr = line.split(",");
+                for(String tempStr : tempArr) {
+                    System.out.print(tempStr + " ");
+                }
+                System.out.println();
+            }
+            br.close();
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        }
     }
 
     public static void main(String[] args){
@@ -111,10 +133,10 @@ public class FieldTest {
         }
 
 
-        testing.setVisible(true);
-        testing.repaint();
-        FieldTest.saves(ROWS,COLS);
-
+//        testing.setVisible(true);
+//        testing.repaint();
+//        FieldTest.saves(ROWS,COLS);
+        FieldTest.load();
     }
 
 
