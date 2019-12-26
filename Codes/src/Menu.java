@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class Menu extends JFrame {
     Field fields = new Field();
@@ -25,9 +24,9 @@ public class Menu extends JFrame {
     private JPanel North_content = new JPanel(new GridLayout(2,2));//top
     private JPanel South_content = new JPanel(new GridLayout(1,4));//below
     private JPanel Center_content = new JPanel();//center
-    int xx = 10;
-    int yy = 20;
-    Car mobil1 = new Car(xx,yy);
+    Car mobil1 = new Car(10,100);
+    Bus nus1 = new Bus(10,180);
+    Motor moto1 = new Motor(10,380);
 
     public Menu(String title) {
         super(title);//set title
@@ -66,18 +65,6 @@ public class Menu extends JFrame {
         North_content.add(Stop);
 
         West_Content.add(New_but);
-        New_but.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                int xx = 10;
-                for(int a=0;a<10;a++){
-                    int i = 10;
-                    xx = xx+ i;
-
-                    mobil1.setPositionX(xx);
-                }
-            }
-        });
         West_Content.add(Open_but);
         West_Content.add(Save_but);
         West_Content.add(Exit_but);
@@ -88,7 +75,9 @@ public class Menu extends JFrame {
         South_content.add(status);
         South_content.add(statustxt);
 
-        fields.addCar(mobil1);
+        fields.addVehicle(mobil1);
+        fields.addVehicle(nus1);
+        fields.addVehicle(moto1);
         this.repaint();
         setVisible(true);
 

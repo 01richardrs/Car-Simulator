@@ -1,13 +1,17 @@
+import java.awt.*;
+
 public class Bus extends Vehicle{
-    public Bus(String Bus_name, String Bus_colour){
-        super(0,0);
-        this.setSize(6);
-        this.setName(Bus_name);
-        this.setColour(Bus_colour);
-//        this.setPositionX(0);
-//        this.setPositionY(0);
-        this.setRoad(0);
-        this.setVehicle_state(false);
-        this.setVisible(false);
+
+    public Bus(int posX, int posY){
+        super(posX,posY);
+        width = 200;
+        height=50;
+    }
+    public void paintMe(Graphics g){
+        g.setColor(Color.BLUE);
+        g.fillRect(positionX,positionY,width,height);
+        g.setColor(Color.black);
+        g.setFont(g.getFont().deriveFont(30f));
+        g.drawString("Bus",positionX+5,positionY+30);//x and then y
     }
 }
