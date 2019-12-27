@@ -6,6 +6,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class FieldTest {
     private static final int ROWS = 10;
@@ -55,7 +59,8 @@ public class FieldTest {
         }
 
     }
-    public static void load(){
+    public static void load(JFrame Testing){
+        int test = 0,test2 = 0;
         try {
             File file = new File("test2.csv");
             FileReader fr = new FileReader(file);
@@ -63,11 +68,16 @@ public class FieldTest {
 
             String line = "";
             String[] tempArr;
+
             while((line = br.readLine()) != null) {
                 tempArr = line.split(",");
-                for(String tempStr : tempArr) {
+                for (String tempStr : tempArr) {
                     System.out.print(tempStr + " ");
+                    Road_translator(test,test2,tempStr,Testing);
+                    test2++;
                 }
+                test2 = 0;
+                test++;
                 System.out.println();
             }
             br.close();
@@ -75,6 +85,41 @@ public class FieldTest {
             ioe.printStackTrace();
         }
     }
+    public static void Road_translator(int x,int y,String code,JFrame testing){
+        if(code.equals("0")){
+                try {
+                    buttonGrid[x][y] = new JButton("0");
+                    Image img = ImageIO.read(FieldTest.class.getResource("grass.jpg"));
+                    buttonGrid[x][y].setIcon(new ImageIcon(img));
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
+
+            }else if(code.equals("1")){
+                try {
+                    buttonGrid[x][y] = new JButton("1");
+                    Image img = ImageIO.read(FieldTest.class.getResource("straight2.jpg"));
+                    buttonGrid[x][y].setIcon(new ImageIcon(img));
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
+            }else{
+            buttonGrid[x][y] = new JButton("X NOT FUND");
+        }
+        buttonGrid[x][y].addActionListener(buttonListener);
+        testing.add(buttonGrid[x][y]);
+        testing.setVisible(true);
+        testing.repaint();
+    }
+//    public static void create_env(int xt,int yt,JFrame testing,String code){
+//
+//        for(int x=0;x<xt;x++) {
+//            for (int y = 0; y < yt; y++) {
+//                Road_translator(x,y,code,testing);
+//            }
+//        }
+//
+//    }
 
     public static void main(String[] args){
         JFrame testing = new JFrame("Test");
@@ -82,55 +127,12 @@ public class FieldTest {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         testing.setSize(screenSize.width, screenSize.height);
 
-
         GridLayout testingt = new GridLayout(ROWS,COLS);
         testing.setLayout(testingt);
 
-        int b=1;
-
-        for(int y=0;y<10;y++) {
-            for (int x = 0; x < 10; x++) {
-                buttonGrid[y][x] = new JButton(""+b);
-
-                if(y==2){
-                    try {
-                        Image img = ImageIO.read(FieldTest.class.getResource("straight2.jpg"));
-                        buttonGrid[y][x].setIcon(new ImageIcon(img));
-                    } catch (Exception ex) {
-                        System.out.println(ex);
-                    }
-                }else if(y==4){
-                    try {
-                        Image img = ImageIO.read(FieldTest.class.getResource("straight2.jpg"));
-                        buttonGrid[y][x].setIcon(new ImageIcon(img));
-                    } catch (Exception ex) {
-                        System.out.println(ex);
-                    }
-                }else if(y==6){ try {
-                    Image img = ImageIO.read(FieldTest.class.getResource("straight2.jpg"));
-                    buttonGrid[y][x].setIcon(new ImageIcon(img));
-                } catch (Exception ex) {
-                    System.out.println(ex);
-                }}else {
-                try {
-                    Image img = ImageIO.read(FieldTest.class.getResource("grass.jpg"));
-                    buttonGrid[y][x].setIcon(new ImageIcon(img));
-                } catch (Exception ex) {
-                    System.out.println(ex);
-                }
-                }
-
-                buttonGrid[y][x].addActionListener(buttonListener);
-                b++;
-                testing.add(buttonGrid[y][x]);
-            }
-        }
-
-
-        testing.setVisible(true);
-        testing.repaint();
+//        FieldTest.create_env(testing);
 //        FieldTest.saves(ROWS,COLS);
-//        FieldTest.load();
+        FieldTest.load(testing);
     }
 
 
