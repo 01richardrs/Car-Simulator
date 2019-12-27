@@ -5,18 +5,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.print.Book;
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.List;
 
 public class FieldTest {
     private static final int ROWS = 10;
     private static final int COLS = ROWS;
     private static JButton[][] buttonGrid = new JButton[ROWS][COLS];
+
     private static ActionListener buttonListener = new ActionListener() {
 
         @Override
@@ -31,7 +26,6 @@ public class FieldTest {
             }
         }
     };
-
     public static void saves(int row, int col){
         try (PrintWriter writer = new PrintWriter(new File("test2.csv"))) {
 
@@ -133,10 +127,10 @@ public class FieldTest {
         }
 
 
-//        testing.setVisible(true);
-//        testing.repaint();
+        testing.setVisible(true);
+        testing.repaint();
 //        FieldTest.saves(ROWS,COLS);
-        FieldTest.load();
+//        FieldTest.load();
     }
 
 
