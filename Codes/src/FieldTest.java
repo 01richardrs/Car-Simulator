@@ -63,7 +63,6 @@ public class FieldTest {
 
     }
     public static void load(JFrame Testing){
-        System.out.println("BAMGSAT");
         int test = 0,test2 = 0;
         try {
             File file = new File("test2.csv");
@@ -108,24 +107,143 @@ public class FieldTest {
                     g.setColor(Color.green);
                     g.fillRect(0,0,this.getWidth(),this.getHeight());
                     g.setColor(Color.white);
-                    g.fillRect(0,5,this.getWidth(),10);// 0 for pos x , 125 for y pos //20 for height
+                    g.fillRect(0,23,this.getWidth(),5);// 0 for pos x , 125 for y pos //20 for height
                     g.setColor(Color.black);
-                    g.fillRect(0,15,this.getWidth(),50);
+                    g.fillRect(0,28,this.getWidth(),50);
                     g.setColor(Color.white);
-                    g.fillRect(0,63,this.getWidth(),10);
+                    g.fillRect(0,78,this.getWidth(),5);
                 for (int b = 0; b < getWidth(); b = b + 40) {//line
                     g.setColor(Color.WHITE);
-                    g.fillRect(b, 35, 10, 3);// i3 tebel i2 pjg
+                    g.fillRect(b, 50, 10, 3);// i3 tebel i2 pjg
                     }
                 }
             };
-            }else{
+                }else if(code.equals("2")){
+                    p=new JPanel(){
+                        @Override
+                        protected void paintComponent(Graphics g) {
+                            super.paintComponent(g);
+                            g.setColor(Color.green);
+                            g.fillRect(0,0,this.getWidth(),this.getHeight());
+                            g.setColor(Color.white);
+                            g.fillRect(70,0,5,this.getHeight());// 0 for pos x , 125 for y pos //20 for height
+                            g.setColor(Color.black);
+                            g.fillRect(75,0,50,this.getHeight());
+                            g.setColor(Color.white);
+                            g.fillRect(125,0,5,this.getHeight());
+                            for (int b = 0; b < getHeight(); b = b + 40) {//line
+                                g.setColor(Color.WHITE);
+                                g.fillRect(98, b, 3, 10);// i3 tebel i2 pjg
+                            }
+                        }
+                    };
+                }else if(code.equals("3r")){
+            p=new JPanel(){
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.setColor(Color.green);
+                    g.fillRect(0,0,this.getWidth(),this.getHeight());
+                    g.setColor(Color.white);
+                    g.fillRect(70,0,5,this.getHeight());// 0 for pos x , 125 for y pos //20 for height
+                    g.fillRect(0,23,75,5);
+                    g.setColor(Color.black);
+                    g.fillRect(75,0,50,this.getHeight());
+                    g.fillRect(0,28,75,50);
+                    g.setColor(Color.white);
+                    g.fillRect(125,0,5,this.getHeight());
+                    g.fillRect(0,78,75,5);
+                    g.setColor(Color.WHITE);
+                    g.fillRect(98, 5, 3, 10);// i3 tebel i2 pjg
+                    g.fillRect(98, 75, 3, 10);// i3 tebel i2 pjg
+                    g.fillRect(65, 50, 10, 3);
+                    g.fillRect(35, 50, 10, 3);
+                    g.fillRect(5, 50, 10, 3);
+                }
+            };
+        }else if(code.equals("3t")){
+            p=new JPanel(){
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.setColor(Color.green);
+                    g.fillRect(0,0,this.getWidth(),this.getHeight());
+                    g.setColor(Color.white);
+                    g.fillRect(70,40,5,this.getHeight());// 0 for pos x , 125 for y pos //20 for height
+                    g.fillRect(0,23,this.getWidth(),5);
+                    g.fillRect(125,40,5,this.getHeight());
+                    g.fillRect(0,78,this.getWidth(),5);
+                    g.setColor(Color.black);
+                    g.fillRect(75,40,50,75);
+                    g.fillRect(0,28,this.getWidth(),50);
+                    g.setColor(Color.WHITE);
+                    g.fillRect(98, 75, 3, 10);// i3 tebel i2 pjg
+                    g.fillRect(165, 50, 10, 3);
+                    g.fillRect(135, 50, 10, 3);
+                    g.fillRect(65, 50, 10, 3);
+                    g.fillRect(35, 50, 10, 3);
+                    g.fillRect(5, 50, 10, 3);
+                }
+            };
+        }else if(code.equals("3low")){
+            p=new JPanel(){
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.setColor(Color.green);
+                    g.fillRect(0,0,this.getWidth(),this.getHeight());
+                    g.setColor(Color.white);
+                    g.fillRect(70,0,5,70);// 0 for pos x , 125 for y pos //20 for height
+                    g.fillRect(0,23,this.getWidth(),5);
+                    g.fillRect(125,0,5,70);
+                    g.fillRect(0,78,this.getWidth(),5);
+                    g.setColor(Color.black);
+                    g.fillRect(75,0,50,75);
+                    g.fillRect(0,28,this.getWidth(),50);
+                    g.setColor(Color.WHITE);
+                    g.fillRect(98, 15, 3, 10);// i3 tebel i2 pjg
+                    g.fillRect(165, 50, 10, 3);
+                    g.fillRect(135, 50, 10, 3);
+                    g.fillRect(65, 50, 10, 3);
+                    g.fillRect(35, 50, 10, 3);
+                    g.fillRect(5, 50, 10, 3);
+                }
+            };
+        }else if(code.equals("4")){
+            p=new JPanel(){
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.setColor(Color.green);
+                    g.fillRect(0,0,this.getWidth(),this.getHeight());
+                    g.setColor(Color.white);
+                    g.fillRect(70,0,5,this.getHeight());// 0 for pos x , 125 for y pos //20 for height
+                    g.fillRect(0,23,this.getWidth(),5);
+                    g.fillRect(125,0,5,this.getHeight());
+                    g.fillRect(0,78,this.getWidth(),5);
+                    g.setColor(Color.black);
+                    g.fillRect(75,0,50,this.getHeight());
+                    g.fillRect(0,28,this.getWidth(),50);
+                    g.setColor(Color.WHITE);
+                    g.fillRect(98, 5, 3, 10);// i3 tebel i2 pjg
+                    g.fillRect(98, 75, 3, 10);// i3 tebel i2 pjg
+                    g.fillRect(65, 50, 10, 3);
+                    g.fillRect(35, 50, 10, 3);
+                    g.fillRect(5, 50, 10, 3);
+                    g.fillRect(135, 50, 10, 3);
+                    g.fillRect(165, 50, 10, 3);
+                }
+            };
+        }
+        else{
             p = new JPanel() {
                 @Override
                 protected void paintComponent(Graphics g) {
                     super.paintComponent(g);
-                    g.setColor(Color.BLACK);
+                    g.setColor(Color.green);
                     g.fillRect(0,0,this.getWidth(),this.getHeight());
+                    g.setColor(Color.BLACK);
+                    g.fillRect(15,15,150,100);
                 }
             };
         }
