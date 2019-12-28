@@ -1,3 +1,5 @@
+import javafx.scene.layout.Pane;
+
 import java.awt.Rectangle;
 
 import javax.imageio.ImageIO;
@@ -15,6 +17,7 @@ public class FieldTest {
     private static final int ROWS = 10;
     private static final int COLS = ROWS;
     private static JButton[][] buttonGrid = new JButton[ROWS][COLS];
+//    private static Field[][] draw = new Field[ROWS][COLS];
 
     private static ActionListener buttonListener = new ActionListener() {
 
@@ -60,6 +63,7 @@ public class FieldTest {
 
     }
     public static void load(JFrame Testing){
+        System.out.println("BAMGSAT");
         int test = 0,test2 = 0;
         try {
             File file = new File("test2.csv");
@@ -86,40 +90,53 @@ public class FieldTest {
         }
     }
     public static void Road_translator(int x,int y,String code,JFrame testing){
+        JPanel p = null;
         if(code.equals("0")){
-                try {
-                    buttonGrid[x][y] = new JButton("0");
-                    Image img = ImageIO.read(FieldTest.class.getResource("grass.jpg"));
-                    buttonGrid[x][y].setIcon(new ImageIcon(img));
-                } catch (Exception ex) {
-                    System.out.println(ex);
+            p = new JPanel() {
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.setColor(Color.green);
+                    g.fillRect(0,0,this.getWidth(),this.getHeight());
                 }
-
+            };
             }else if(code.equals("1")){
-                try {
-                    buttonGrid[x][y] = new JButton("1");
-                    Image img = ImageIO.read(FieldTest.class.getResource("straight2.jpg"));
-                    buttonGrid[x][y].setIcon(new ImageIcon(img));
-                } catch (Exception ex) {
-                    System.out.println(ex);
+            p = new JPanel() {
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.setColor(Color.green);
+                    g.fillRect(0,0,this.getWidth(),this.getHeight());
+                    g.setColor(Color.white);
+                    g.fillRect(0,5,this.getWidth(),10);// 0 for pos x , 125 for y pos //20 for height
+                    g.setColor(Color.black);
+                    g.fillRect(0,15,this.getWidth(),50);
+                    g.setColor(Color.white);
+                    g.fillRect(0,63,this.getWidth(),10);
+                for (int b = 0; b < getWidth(); b = b + 40) {//line
+                    g.setColor(Color.WHITE);
+                    g.fillRect(b, 35, 10, 3);// i3 tebel i2 pjg
+                    }
                 }
+            };
             }else{
-            buttonGrid[x][y] = new JButton("X NOT FUND");
+            p = new JPanel() {
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.setColor(Color.BLACK);
+                    g.fillRect(0,0,this.getWidth(),this.getHeight());
+                }
+            };
         }
-        buttonGrid[x][y].addActionListener(buttonListener);
-        testing.add(buttonGrid[x][y]);
+//        buttonGrid[x][y].addActionListener(buttonListener);
+//        testing.add(buttonGrid[x][y]);
+        //        testing.add(draw[x][y]);
+        testing.add(p);
         testing.setVisible(true);
         testing.repaint();
     }
-//    public static void create_env(int xt,int yt,JFrame testing,String code){
-//
-//        for(int x=0;x<xt;x++) {
-//            for (int y = 0; y < yt; y++) {
-//                Road_translator(x,y,code,testing);
-//            }
-//        }
-//
-//    }
+
 
     public static void main(String[] args){
         JFrame testing = new JFrame("Test");
@@ -129,10 +146,13 @@ public class FieldTest {
 
         GridLayout testingt = new GridLayout(ROWS,COLS);
         testing.setLayout(testingt);
-
-//        FieldTest.create_env(testing);
 //        FieldTest.saves(ROWS,COLS);
         FieldTest.load(testing);
+        testing.setVisible(true);
+        testing.repaint();
+
+
+
     }
 
 

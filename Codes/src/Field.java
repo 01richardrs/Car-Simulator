@@ -9,17 +9,16 @@ public class Field extends JPanel {
 
     ArrayList<Vehicle> Vehicle = new ArrayList<Vehicle>();
 
-    public Field(int x,int y){
+    public Field(){
         super();
-        this.intX =x;
-        this.intY = y;
     }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         int b=0;
         g.setColor(Color.green);
-        g.fillRect(intX,intY,250,250);
+        g.fillRect(0,0,this.getWidth(),this.getHeight());
+
 //        g.setColor(Color.blue);
 //        g.fillRect(2,2,20,10);
 
