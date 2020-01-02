@@ -1,23 +1,14 @@
-import javafx.scene.layout.Pane;
-
-import java.awt.Rectangle;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class FieldTest {
     private static final int ROWS = 10;
     private static final int COLS = ROWS;
     private static JButton[][] buttonGrid = new JButton[ROWS][COLS];
-//    private static Field[][] draw = new Field[ROWS][COLS];
+    private static Boolean modes=true;
 
     private static ActionListener buttonListener = new ActionListener() {
 
@@ -33,6 +24,7 @@ public class FieldTest {
             }
         }
     };
+
     public static void saves(int row, int col){
         try (PrintWriter writer = new PrintWriter(new File("test2.csv"))) {
 
@@ -62,7 +54,7 @@ public class FieldTest {
         }
 
     }
-    public static void load(JFrame Testing){
+    public static void load(JFrame Testing,boolean modes){
         int test = 0,test2 = 0;
         try {
             File file = new File("test2.csv");
@@ -76,7 +68,7 @@ public class FieldTest {
                 tempArr = line.split(",");
                 for (String tempStr : tempArr) {
                     System.out.print(tempStr + " ");
-                    Road_translator(test,test2,tempStr,Testing);
+                    Road_translator(test,test2,tempStr,Testing,modes);
                     test2++;
                 }
                 test2 = 0;
@@ -88,7 +80,7 @@ public class FieldTest {
             ioe.printStackTrace();
         }
     }
-    public static void Road_translator(int x,int y,String code,JFrame testing){
+    public static void Road_translator(int x,int y,String code,JFrame testing,boolean modes){
         JPanel p = null;
         if(code.equals("0")){
             p = new JPanel() {
@@ -99,6 +91,7 @@ public class FieldTest {
                     g.fillRect(0,0,this.getWidth(),this.getHeight());
                 }
             };
+            buttonGrid[x][y] = new JButton("0");
             }else if(code.equals("1")){
             p = new JPanel() {
                 @Override
@@ -118,6 +111,7 @@ public class FieldTest {
                     }
                 }
             };
+            buttonGrid[x][y] = new JButton("1");
                 }else if(code.equals("2")){
                     p=new JPanel(){
                         @Override
@@ -137,6 +131,7 @@ public class FieldTest {
                             }
                         }
                     };
+            buttonGrid[x][y] = new JButton("2");
                 }else if(code.equals("3r")){
             p=new JPanel(){
                 @Override
@@ -161,6 +156,7 @@ public class FieldTest {
                     g.fillRect(5, 50, 10, 3);
                 }
             };
+            buttonGrid[x][y] = new JButton("3r");
         }else if(code.equals("3t")){
             p=new JPanel(){
                 @Override
@@ -185,6 +181,7 @@ public class FieldTest {
                     g.fillRect(5, 50, 10, 3);
                 }
             };
+            buttonGrid[x][y] = new JButton("3t");
         }else if(code.equals("3low")){
             p=new JPanel(){
                 @Override
@@ -209,6 +206,7 @@ public class FieldTest {
                     g.fillRect(5, 50, 10, 3);
                 }
             };
+            buttonGrid[x][y] = new JButton("3low");
         }else if(code.equals("4")){
             p=new JPanel(){
                 @Override
@@ -234,6 +232,7 @@ public class FieldTest {
                     g.fillRect(165, 50, 10, 3);
                 }
             };
+            buttonGrid[x][y] = new JButton("4");
         }
         else{
             p = new JPanel() {
@@ -244,13 +243,21 @@ public class FieldTest {
                     g.fillRect(0,0,this.getWidth(),this.getHeight());
                     g.setColor(Color.BLACK);
                     g.fillRect(15,15,150,100);
+
                 }
             };
+            buttonGrid[x][y] = new JButton("null");
         }
-//        buttonGrid[x][y].addActionListener(buttonListener);
-//        testing.add(buttonGrid[x][y]);
-        //        testing.add(draw[x][y]);
+        System.out.println(x+"adas"+y);
+        buttonGrid[x][y].addActionListener(buttonListener);
+
         testing.add(p);
+        if(modes){
+            buttonGrid[x][y].setVisible(true);
+        }else{
+            buttonGrid[x][y].setVisible(false);
+        }
+//        testing.add(buttonGrid[x][y]);
         testing.setVisible(true);
         testing.repaint();
     }
@@ -265,13 +272,9 @@ public class FieldTest {
         GridLayout testingt = new GridLayout(ROWS,COLS);
         testing.setLayout(testingt);
 //        FieldTest.saves(ROWS,COLS);
-        FieldTest.load(testing);
+        FieldTest.load(testing,modes);
         testing.setVisible(true);
         testing.repaint();
 
-
-
     }
-
-
 }
