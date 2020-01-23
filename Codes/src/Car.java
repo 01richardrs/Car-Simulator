@@ -3,9 +3,9 @@ import java.awt.*;
 public class Car extends Vehicle{
     public Car(int x, int y) {
         super(x, y);
-        width=0;
-        height=0;
-        speed=0;//set later based on GUI Size
+        width=30;
+        height=10;
+        speed=15;
     }
 
     public void paintMe(Graphics g) {

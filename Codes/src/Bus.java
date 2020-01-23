@@ -3,9 +3,9 @@ import java.awt.*;
 public class Bus extends Vehicle{
     public Bus(int x, int y) {
         super(x, y);
-        width=0;// less bigger 3times than car
-        height=0;
-        speed=0;//set later based on GUI Size
+        width=45;
+        height=10;
+        speed=7;
     }
 
     public void paintMe(Graphics g) {
