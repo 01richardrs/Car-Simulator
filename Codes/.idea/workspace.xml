@@ -53,7 +53,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.FieldTest">
+  <component name="RunManager" selected="Application.Traffic_Simulator">
     <configuration name="FieldTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FieldTest" />
       <module name="Car Simulator" />
@@ -82,8 +82,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VehicleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="VehicleTest" />
+    <configuration name="Traffic_Simulator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Traffic_Simulator" />
       <module name="Car Simulator" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -91,11 +91,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Traffic_Simulator" />
         <item itemvalue="Application.FieldTest" />
         <item itemvalue="Application.Menu" />
         <item itemvalue="Application.TestGrid01" />
         <item itemvalue="Application.TraffTest" />
-        <item itemvalue="Application.VehicleTest" />
       </list>
     </recent_temporary>
   </component>
