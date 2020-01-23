@@ -1,11 +1,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 public class Traffic_Simulator extends JFrame implements Runnable,ActionListener {
@@ -43,6 +39,8 @@ public class Traffic_Simulator extends JFrame implements Runnable,ActionListener
     }
     public Traffic_Simulator() {
         setTitle("Traffic Simulator");
+        ImageIcon icon = new ImageIcon("C:\\Users\\Rlakkys\\Desktop\\Codes\\Software\\Car-Simulator\\Codes\\icon.png");
+        setIconImage(icon.getImage());
         setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
