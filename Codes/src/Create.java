@@ -20,7 +20,7 @@ public class Create extends JPanel {
         public void addVehicle(Vehicle vehicle) {
             Vehicle_Container.add(vehicle);
         }
-        public void addSignal(Traffics traffics) {
+        public void addTraffic(Traffics traffics) {
             Traffic_Container.add(traffics);
         }
         public void paint(Graphics g) {
@@ -143,7 +143,7 @@ public class Create extends JPanel {
                 Vehicle_Container.get(a).paintMe(g);
             }
         }
-        public void step() {
+        public void Move() {
             for(int i = 0; i< Vehicle_Container.size(); i++) {
                 Vehicle vehicle= Vehicle_Container.get(i);
 
