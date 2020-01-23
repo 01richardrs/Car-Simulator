@@ -16,7 +16,7 @@ public class Traffics {
         this.green=Green;
     }
     public void paintMe(Graphics g){
-        g.setColor(Color.BLACK);
+        g.setColor(Color.LIGHT_GRAY);
         g.fillRect(x, y, 10, 40);
 
         if(this.red==true) {
