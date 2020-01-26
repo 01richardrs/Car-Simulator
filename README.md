@@ -26,6 +26,6 @@ Video Preview Link : https://github.com/01richardrs/Uttility-App/blob/master/Vid
 
 # Screen Preview :
 <p align="center">
-<alt="Simulation Screen" src="https://github.com/01richardrs/Car-Simulator/blob/master/Screenshot/Simulation%20in%20Default%20City.png">
+<img alt="Simulation Screen" src="https://github.com/01richardrs/Car-Simulator/blob/master/Screenshot/Simulation%20in%20Default%20City.png">
 </p>
 More Screen Preveiw can be seen in Screenshot Folder.
